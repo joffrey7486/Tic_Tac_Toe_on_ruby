@@ -39,7 +39,7 @@ class Board
   end
 
   def box_content(box)
-    box_index(box).content
+    return box_index(box).content
   end
 
   def play_turn(player)
@@ -50,21 +50,35 @@ class Board
       user_input = gets.chomp
     end
     #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
-    box_index(user_input).content = "X"
+    box_index(user_input).content = player.symbol
     @count += 1
-    
   end
 
+  # Vérife que l'emplacement n'est pas vide et return true si une ligne est complète 
   def complete_line?(box1, box2, box3)
-    (box1 == box2) && (box2 == box3) ? true : false
+    if !box_is_free?(box1) && !box_is_free?(box2) && !box_is_free?(box3)
+      (box_content(box1) == box_content(box2)) && (box_content(box2) == box_content(box3)) ? true : false
+    else
+      false
+    end
   end
   
   def victory?
     #TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
-    complete_line?("A1", "A2", "A3")
-
-    # if 
-    #  B1.value
+    if complete_line?("A1", "A2", "A3") ||
+       complete_line?("B1", "B2", "B3") ||
+       complete_line?("C1", "C2", "C3") ||
+       complete_line?("A1", "B1", "C1") ||
+       complete_line?("A2", "B2", "C2") ||
+       complete_line?("A3", "B3", "C3") ||
+       complete_line?("A1", "B2", "C3") ||
+       complete_line?("A3", "B2", "C1")
+      return "victory"
+    elsif @count == 9
+      return "null"
+    else
+      return "on going"
+    end
   end
 
   
