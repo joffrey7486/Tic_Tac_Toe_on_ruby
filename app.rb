@@ -8,9 +8,9 @@ require 'app/game'
 require 'app/board_case'
 require 'app/board'
 require 'views/show'
+require 'views/welcome'
 
 
-#Application.new.perform
 app = Application.new
 app.perform
 binding.pry

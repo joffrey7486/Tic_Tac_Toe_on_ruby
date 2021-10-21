@@ -44,10 +44,11 @@ class Board
 
   def play_turn(player)
     #1) demande au bon joueur ce qu'il souhaite faire
-    puts "Quelle case choisis-tu ?"
+    puts "Hey #{player.name}, c'est à toi de jouer ! Quelle case choisis-tu ?".blue.bold
     user_input = ""
     while !box_is_free?(user_input)
       user_input = gets.chomp
+      exit if user_input == "quit"
     end
     #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
     box_index(user_input).content = player.symbol

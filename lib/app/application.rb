@@ -5,20 +5,39 @@ class Application
   attr_accessor :game
 
   def perform
-    # TO DO : méthode qui initialise le jeu puis contient des boucles while pour faire tourner le jeu tant que la partie n'est pas terminée.
+    Welcome.new.welcome_screen
+    # Demande aux joueurs leurs nom, les enregistres et leur indique leurs symboles de partie
     puts "Salut joueur 1, quel est ton nom ?"
     player1_name = gets.chomp
     puts "Super ton symbole sera X"
-    sleep 1
+    sleep 0.5
     puts "Salut joueur 2, quel est ton nom ?"
     player2_name = gets.chomp
     puts "Super ton symbole sera O"
-    sleep 1
+    sleep 0.5
     @game = Game.new(player1_name, player2_name)
-    while @game.status == "on going"
-      @game.turn
-    end
     
+    # Tant que le status est en "on going" les tours ce lance 
+    while true
+      
+      while @game.status == "on going"
+        @game.turn
+      end
+      
+      @game.game_end
+      puts "Voulez vous contiuer ? O/n"
+      
+      case gets.chomp
+      when "O" then @game.new_round
+      when "n" 
+        puts "See you soon !!"
+        sleep 1
+        exit
+      else
+        puts "Ce n'est pas une entrée valide..."
+        sleep 1
+      end
+    end
   end
 
   
