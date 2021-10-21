@@ -1,5 +1,4 @@
 class Game
-    #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
   attr_accessor :players_array, :board, :current_player, :status
 
   def initialize(player1_name, player2_name)

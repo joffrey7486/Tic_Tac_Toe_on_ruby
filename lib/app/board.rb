@@ -62,7 +62,7 @@ class Board
   end
   
   def victory?
-    #TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
+    # Vérifie le plateau et indique s'il y a un vainqueur ou match nul
     if complete_line?("A1", "A2", "A3") ||
        complete_line?("B1", "B2", "B3") ||
        complete_line?("C1", "C2", "C3") ||
