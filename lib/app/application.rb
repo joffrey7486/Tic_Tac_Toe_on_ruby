@@ -4,22 +4,26 @@ class Application
 
   attr_accessor :game
 
+  def ask_for_names
+    puts "Salut Joueur 1, quel est ton nom ?"
+    player1_name = gets.chomp
+    puts "Super ! Voici ton symbole -->  X"
+    sleep 0.5
+    puts "\nHello joueur 2, et toi quel est ton nom ?"
+    player2_name = gets.chomp
+    puts "Super ! Pour toi ce sera -->  O"
+    sleep 2
+    return [player1_name, player2_name]
+  end
+
   def perform
     Welcome.new.welcome_screen
     # Demande aux joueurs leurs nom, les enregistres et leur indique leurs symboles de partie
-    puts "Salut joueur 1, quel est ton nom ?"
-    player1_name = gets.chomp
-    puts "Super ton symbole sera X"
-    sleep 0.5
-    puts "Salut joueur 2, quel est ton nom ?"
-    player2_name = gets.chomp
-    puts "Super ton symbole sera O"
-    sleep 0.5
-    @game = Game.new(player1_name, player2_name)
+    @game = Game.new(ask_for_names)
     
-    # Tant que le status est en "on going" les tours ce lance 
+    # Boucle principale
     while true
-      
+      # Tant que le status est en "on going" les tours se lancent 
       while @game.status == "on going"
         @game.turn
       end

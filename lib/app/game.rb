@@ -1,11 +1,11 @@
 class Game
   attr_accessor :players_array, :board, :current_player, :status
 
-  def initialize(player1_name, player2_name)
+  def initialize(player_names_array)
     # Créé 2 joueurs et les mets dans un array, créé un board, met le status de jeu à "on going", et défini un current_player
     @players_array = Array.new
-    @players_array  << Player.new(player1_name, "X".yellow.bold)
-    @players_array  << Player.new(player2_name, "O".cyan.bold)
+    @players_array << Player.new(player_names_array[0], "X".yellow.bold)
+    @players_array << Player.new(player_names_array[1], "O".cyan.bold)
     @board = Board.new
     @status = "on going"
     @current_player = @players_array[0]
