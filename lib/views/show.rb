@@ -1,11 +1,9 @@
-# cette classe sera une sorte de view. Elle affichera l'état du plateau de jeu à un instant T.
-
 class Show
+  # cette classe est une sorte de view. Elle affiche l'état du plateau de jeu à un instant T.
 
   def show_board(board, players_array)
     system("clear")
-    # Score des parties
-    puts "Scores : ".blue.underline
+    puts "Scores :".light_blue.underline
     puts "#{players_array[0].name} #{players_array[0].win_count} - #{players_array[1].win_count} #{players_array[1].name}"
     puts
     puts " "
