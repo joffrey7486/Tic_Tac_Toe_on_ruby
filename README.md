@@ -1,4 +1,4 @@
-# Tic-Tac-Too
+# Tic-Tac-Toe
 
 ## 1. Règles du jeu
 - Ce jeu se jouera à deux joueurs (humains), 
@@ -24,5 +24,8 @@ Le jeu se lance executant `ruby app.rb`
 - **player.rb** : contient la classe `Player` qui instancie tous les attributs concernant les joueurs
 - **board_case.rb** : contient la classe `BoardCase` qui contient les attributs de chaques cases du plateau
 
+## 3. Crédits
+Une production [joffrey7486](https://github.com/joffrey7486) et [fleopaulD](https://github.com/fleopaulD) 
 
-                                                                            _ProductBy fleopaulD && joffrey7486_
+## 4. Licence
+MIT
